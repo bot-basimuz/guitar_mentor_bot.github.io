@@ -1,2 +1,2 @@
-# guitar_mentor_bot.github.io
+# kinescope-player.github.io
 My first project on GuitHub
