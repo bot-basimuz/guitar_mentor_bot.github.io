@@ -22,9 +22,21 @@
 </head>
 
 <body>
-    <iframe src="https://kinescope.io/embed/ky24CsMMcPCGiZ46VXMzKe"
-        allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;"
-        frameborder="0" allowfullscreen width="1080" height="1920"></iframe>
+    <script>
+        // Получаем параметр video_id из URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const videoId = urlParams.get('video_id');
+
+        // Проверяем, что video_id передан
+        if (!videoId) {
+            document.body.innerHTML = '<p>❌ Ошибка: не указан ID видео.</p>';
+        } else {
+            // Создаем iframe с видео из Kinescope
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://kinescope.io/embed/${videoId}?autoplay=1`;
+            iframe.allow = 'autoplay; fullscreen';
+            document.body.appendChild(iframe);
+        }
 </body>
 
 </html>
